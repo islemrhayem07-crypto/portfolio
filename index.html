@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Islem Taher – Computer Science Student | Software Development | AI</title>
+<meta name="description" content="Portfolio of Islem Taher, third-year computer science student at ESSTHS in Mahdia, Tunisia, looking for an internship. Web, AI, blockchain and cloud projects.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F2EFFB;--surface:#fff;--ink:#1E0F47;--muted:#56497F;--line:#D5CDEE;--pj:#D61F69;--sk:#0A6FA8;--on-pj:#fff;
+ --disp:"Unbounded","Arial Black","Trebuchet MS",sans-serif;--body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150D2B;--surface:#20153F;--ink:#F1EBFF;--muted:#B5A8DE;--line:#3B2D6C;--pj:#FF6B9A;--sk:#5CC8FF;--on-pj:#150D2B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#150D2B;--surface:#20153F;--ink:#F1EBFF;--muted:#B5A8DE;--line:#3B2D6C;--pj:#FF6B9A;--sk:#5CC8FF;--on-pj:#150D2B;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+a{color:inherit}
+button{font-family:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--pj);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:14px;height:56px}
+.logo{font:800 16px var(--disp);text-decoration:none;margin-right:auto}
+nav{display:flex;gap:16px;overflow-x:auto}
+nav a{text-decoration:none;color:var(--muted);font-weight:500;font-size:15px;white-space:nowrap}
+nav a:hover{color:var(--ink)}
+.theme{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:14px;font-weight:500;min-height:38px}
+section{padding:80px 0 0}
+h1,h2,h3{font-family:var(--disp);margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(30px,5.2vw,62px);line-height:1.04;font-weight:800}
+h1 span{display:block}
+h2{font-size:clamp(24px,3.6vw,36px);font-weight:800;margin-bottom:22px}
+h3{font-size:18px;font-weight:600;line-height:1.25}
+.hero{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:start;padding-top:44px}
+.lede{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:26em;margin:20px 0 24px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;border:2px solid var(--ink);background:none;cursor:pointer;font-size:16px}
+.btn.main{background:var(--pj);border-color:var(--pj);color:var(--on-pj)}
+.facts{list-style:none;margin:0;padding:0 0 0 16px;border-left:3px solid var(--sk);display:grid;gap:8px;color:var(--muted)}
+.facts b{color:var(--ink)}
+.lab{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:12px 12px 18px}
+#map{display:block;width:100%;height:auto;overflow:visible}
+.edge{fill:none;stroke:var(--line);stroke-width:1.6;stroke-dasharray:1;animation:draw 1.1s ease-out backwards;animation-delay:calc(var(--i)*45ms);transition:stroke .2s,opacity .2s}
+.edge.on{stroke:var(--pj);stroke-width:2.8}
+.edge.dim{opacity:.35}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+.node{cursor:pointer;outline:none;transition:opacity .2s}
+.node.dim{opacity:.3}
+.proj circle{fill:var(--pj);stroke:var(--surface);stroke-width:3}
+.proj text{fill:var(--on-pj);font:700 15px var(--disp);text-anchor:middle}
+.proj.cur circle{stroke:var(--ink);stroke-width:4}
+.skill circle{fill:var(--surface);stroke:var(--sk);stroke-width:2.5}
+.skill.on circle{fill:var(--sk)}
+.skill text{fill:var(--ink);font:500 18px var(--body)}
+.skill.cur text{font-weight:700}
+.node:focus-visible circle{stroke:var(--ink);stroke-width:4}
+.hint{margin:4px 8px 12px;font-size:14px;color:var(--muted)}
+.panel{margin:0 8px;padding:16px 18px;border-radius:14px;background:var(--bg);border:1px solid var(--line);min-height:190px}
+.panel p{margin:8px 0 12px}
+.panel .meta{font-size:14px;color:var(--muted);margin-top:4px}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tag{border:1.5px solid var(--sk);background:none;border-radius:999px;padding:3px 12px;font-size:14px;font-weight:500;cursor:pointer;min-height:32px}
+.tag:hover{background:var(--sk);color:var(--bg)}
+.tag.p{border-color:var(--pj)}
+.tag.p:hover{background:var(--pj);color:var(--on-pj)}
+.rows{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1.1fr 2fr 1.2fr;gap:18px;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:18px 8px;cursor:pointer;align-items:baseline}
+.row:hover{background:var(--surface)}
+.row b{font:600 17px var(--disp)}
+.row small{display:block;font:400 14px var(--body);color:var(--muted);margin-top:2px}
+.row span{color:var(--muted);font-size:15px}
+.years{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.years b{display:block;font:800 clamp(40px,6vw,64px)/1 var(--disp);color:transparent;-webkit-text-stroke:2px var(--pj);margin-bottom:10px}
+.years p{margin:0;color:var(--muted);font-size:16px}
+.beyond{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.beyond div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.beyond h3{margin-bottom:6px}
+.beyond p{margin:0;color:var(--muted);font-size:16px}
+.contact{padding-bottom:72px}
+.big{font:800 clamp(20px,4.4vw,48px)/1.15 var(--disp);letter-spacing:-.02em;word-break:break-word;margin:0 0 20px}
+.big a{text-decoration-color:var(--pj);text-decoration-thickness:4px;text-underline-offset:7px}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:4px}.years{grid-template-columns:1fr 1fr}.beyond{grid-template-columns:1fr}}
+@media (max-width:600px){.skill text{font-size:23px}.proj text{font-size:17px}.lab{padding:8px 4px 14px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.edge{animation:none}}
+.prose p{max-width:38em;color:var(--muted);margin:0 0 14px;font-size:18px}
+.box b{color:var(--ink)}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top">Islem</a>
+<nav aria-label="Sections"><a href="#top">Work map</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#path">Path</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+<button class="theme" id="theme"></button>
+</div></header>
+
+<main>
+<div class="wrap hero" id="top">
+<div>
+<h1><span>Islem</span><span>Taher</span></h1>
+<p class="lede">Third-year computer science student building web, AI, blockchain and cloud projects, and looking for an internship.</p>
+<div class="btns"><a class="btn main" href="#projects">Browse all projects</a><a class="btn" href="cv/Islem-Taher-CV.pdf" download>Download my CV</a><a class="btn" href="#contact">Get in touch</a></div>
+<ul class="facts">
+<li><b>Open to internships</b> and collaborations</li>
+<li><b>ESSTHS</b> third-year computer science</li>
+<li><b>IEEEXtreme</b> 2026, <b>Nuit de l’Info</b> 2025</li>
+</ul>
+</div>
+<div class="lab">
+<svg id="map" viewBox="-30 0 700 580" role="group" aria-label="Map linking my projects to the tools I used in each"></svg>
+<p class="hint">Pink circles are projects, blue dots are tools. Select a project to see its tools, or a tool to see where I used it.</p>
+<div class="panel" id="panel" aria-live="polite"></div>
+</div>
+</div>
+
+<section id="projects"><div class="wrap">
+<h2>All projects</h2>
+<ul class="rows" id="rows"></ul>
+</div></section>
+
+<section id="about"><div class="wrap">
+<h2>Beyond the code</h2>
+<div class="prose">
+<p>I’m a third-year computer science student specializing in software engineering and information systems at ESSTHS, in Hammam Sousse. My studies have taken me through web development, artificial intelligence, blockchain and cloud computing.</p>
+<p>I learn by building: I like to experiment with new technologies, solve technical challenges and turn ideas into working applications.</p>
+<p>I value teamwork, autonomy, communication and continuous learning, and I’m looking for an internship where I can turn my academic knowledge into professional experience.</p>
+</div>
+</div></section>
+
+<section id="path"><div class="wrap">
+<h2>How I got here</h2>
+<div class="years">
+<div><b>2024</b><p>Earned my Baccalaureate in Mathematics and started my Licence in Computer Science at ESSTHS. Began exploring programming, algorithms and software development.</p></div>
+<div><b>2025</b><p>Took part in Nuit de l’Info, a national overnight hackathon, and built a 3D maze game in Unity and C#.</p></div>
+<div><b>2026</b><p>Took part in IEEEXtreme, built projects around AI recommendations, blockchain and cloud, and continued my third year.</p></div>
+</div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+<h2>Beyond academic projects</h2>
+<div class="beyond">
+<div><h3>Nuit de l’Info 2025</h3><p>Participant. A national overnight web development hackathon, where I worked with a team to design and deliver a project under time constraints.</p></div>
+<div><h3>IEEEXtreme 2026</h3><p>Participant. A 24-hour international programming competition, solving algorithmic problems collaboratively under pressure.</p></div>
+<div><h3>AWS Academy Cloud Foundations</h3><p>Certification, 2026. Cloud computing and AWS fundamentals.</p></div>
+<div><h3>TCF, level B2</h3><p>French level B2, certified through the Test de Connaissance du Français.</p></div>
+</div>
+</div></section>
+
+<section id="toolbox"><div class="wrap">
+<h2>What I work with</h2>
+<div class="two">
+<div class="box"><h3>Build</h3><p>Python, Java, C, JavaScript, HTML5, CSS3, PHP, MySQL and Firebase Realtime Database.</p></div>
+<div class="box"><h3>Blockchain</h3><p>Solidity, Ethereum, ethers.js, MetaMask, IPFS and Pinata, Remix and Hardhat.</p></div>
+<div class="box"><h3>Cloud</h3><p>AWS Academy with EC2, VPC, RDS and security groups, plus Docker Compose, Vagrant, VirtualBox and Bash.</p></div>
+<div class="box"><h3>AI and testing</h3><p>Recommendation techniques and user-profile-based search. Apache JMeter, Git, GitHub, VS Code and Unity.</p></div>
+<div class="box"><h3>Languages</h3><p>Arabic (native), French (B2, TCF certified), English (intermediate), Italian and Turkish (beginner).</p></div>
+<div class="box"><h3>How I work</h3><p>Teamwork, problem-solving, time management, autonomy, analytical thinking and communication.</p></div>
+</div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+<h2>Let’s build something meaningful</h2>
+<p class="big"><a href="mailto:islemrhayem07@gmail.com">islemrhayem07@gmail.com</a></p>
+<div class="btns"><button class="btn main" id="copy">Copy email address</button><a class="btn" href="https://github.com/islemrhayem07-crypto" rel="noopener">GitHub</a><a class="btn" href="https://linkedin.com/in/islem-taher-94b448414" rel="noopener">LinkedIn</a></div>
+<p style="color:var(--muted)">Open to internship opportunities, collaborations and interesting technical challenges. Phone: <a href="tel:+21696304278">+216 96 304 278</a>. Based in Mahdia, Tunisia.</p>
+</div></section>
+</main>
+<footer><div class="wrap">Islem Taher</div></footer>
+
+<script>
+(function(){
+var P=[
+{id:"benna",n:"BENNA",f:"BENNA, healthy food e-commerce",y:2026,k:"Academic project (PFA)",d:"A specialized e-commerce platform that makes healthier food more accessible through personalized experiences and intelligent recommendations. It has dashboards for administrators, nutritionists, suppliers and delivery personnel, Basic, Premium and Elite consultation plans, search based on dietary profiles, and performance and security testing with Apache JMeter.",s:["PHP","MySQL","Python","JavaScript","AI","JMeter"]},
+{id:"diploma",n:"Veritas",f:"Veritas, blockchain diploma verification",y:2026,k:"Academic project",d:"A decentralized solution that verifies the authenticity of academic diplomas. A smart contract (emettreDiplome, verifierDiplome, revoquerDiplome, onlyOwner) records the SHA-256 hash of each diploma PDF on Ethereum Sepolia. Administrators accept or reject diplomas through MetaMask, and recruiters check a PDF’s authenticity.",s:["Solidity","JavaScript","IPFS"]},
+{id:"aws",n:"AWS",r:"VM to AWS",f:"Web app migration from a local VM to AWS",y:2026,k:"Academic project",d:"A cloud migration of a multi-tier web application, from a local VirtualBox and Vagrant environment to AWS: EC2 instances, VPC and security group configuration, a managed RDS database, and connectivity and integration tests.",s:["AWS","VPC","EC2","Docker"]},
+{id:"darna",n:"DARNA",f:"DARNA, student housing rentals",y:2026,k:"Personal project",d:"A web platform that simplifies house rental for students by connecting property owners with potential tenants. It has two roles, housing ads, accommodation search with filters, and property information management.",s:["PHP","MySQL","JavaScript"]},
+{id:"health",n:"Health",r:"Mini Health Monitor",f:"Mini Health Monitor",y:2026,k:"Personal project",d:"A real-time dashboard for temperature, heart rate and SpO2 with automatic alerts and historical data, built on Firebase Realtime Database.",s:["Python","Firebase","JavaScript"]},
+{id:"maze",n:"Maze",r:"Maze Game",f:"Maze Game, a 3D interactive game",y:2025,k:"Academic project",d:"A 3D maze game with navigation, collision detection, multiple levels and an interactive interface.",s:["Unity","C#"]}
+];
+var B={},S={};
+P.forEach(function(p){B[p.id]=p;p.s.forEach(function(s){(S[s]=S[s]||[]).push(p.id)})});
+var SK=Object.keys(S),NS="http://www.w3.org/2000/svg",cx=320,cy=290,rd=Math.PI/180;
+var svg=document.getElementById("map");
+function el(n,a,par){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(par)par.appendChild(e);return e}
+var gE=el("g",{},svg),gS=el("g",{},svg),gP=el("g",{},svg);
+var pos={};
+P.forEach(function(p,i){p.a=(-90+i*360/P.length)*rd;pos[p.id]={x:cx+108*Math.cos(p.a),y:cy+98*Math.sin(p.a)}});
+var mean={};
+SK.forEach(function(s){var x=0,y=0;S[s].forEach(function(id){x+=Math.cos(B[id].a);y+=Math.sin(B[id].a)});mean[s]=Math.atan2(y,x)});
+SK.sort(function(a,b){return mean[a]-mean[b]});
+var n=SK.length,best=0,bc=1e9;
+for(var o=0;o<360;o+=5){var c=0;SK.forEach(function(s,k){var a=(o+k*360/n)*rd;c+=Math.abs(Math.atan2(Math.sin(a-mean[s]),Math.cos(a-mean[s])))});if(c<bc){bc=c;best=o}}
+var sp={},sN={},pN={},edges=[],ei=0;
+SK.forEach(function(s,k){var a=(best+k*360/n)*rd;sp[s]={x:cx+218*Math.cos(a),y:cy+208*Math.sin(a),c:Math.cos(a),sn:Math.sin(a)}});
+P.forEach(function(p){p.s.forEach(function(s){
+ var a=pos[p.id],b=sp[s],mx=cx+((a.x+b.x)/2-cx)*.5,my=cy+((a.y+b.y)/2-cy)*.5;
+ var e=el("path",{d:"M"+a.x+" "+a.y+"Q"+mx+" "+my+" "+b.x+" "+b.y,pathLength:1,"class":"edge"},gE);
+ e.style.setProperty("--i",ei++);edges.push({el:e,p:p.id,s:s})})});
+function act(g,t,id){
+ g.addEventListener("click",function(){pick(t,id)});
+ g.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse")pick(t,id)});
+ g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(t,id)}});
+}
+SK.forEach(function(s){
+ var q=sp[s],g=el("g",{tabindex:0,role:"button","aria-label":s+", used in "+S[s].length+" project"+(S[s].length>1?"s":"")},gS);
+ el("circle",{cx:q.x,cy:q.y,r:8},g);
+ var side=q.c>.2?1:q.c<-.2?-1:0;
+ var t=el("text",{x:q.x+side*14,y:q.y+(side?6:(q.sn<0?-14:26)),"text-anchor":side>0?"start":side<0?"end":"middle"},g);
+ t.textContent=s;g.setAttribute("class","node skill");act(g,"s",s);sN[s]=g});
+P.forEach(function(p){
+ var q=pos[p.id],g=el("g",{tabindex:0,role:"button","aria-label":p.f+", "+p.s.length+" tools","class":"node proj"},gP);
+ el("circle",{cx:q.x,cy:q.y,r:39},g);
+ var t=el("text",{x:q.x,y:q.y+5},g);t.textContent=p.n;act(g,"p",p.id);pN[p.id]=g});
+
+var sel={t:"p",id:"benna"},panel=document.getElementById("panel");
+function mk(tag,cls,txt,par){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;if(par)par.appendChild(e);return e}
+function paint(){
+ var isP=sel.t==="p",rp=isP?[sel.id]:S[sel.id],rs=isP?B[sel.id].s:[sel.id];
+ edges.forEach(function(e){e.el.setAttribute("class","edge "+((isP?e.p===sel.id:e.s===sel.id)?"on":"dim"))});
+ P.forEach(function(p){pN[p.id].setAttribute("class","node proj"+(rp.indexOf(p.id)>-1?"":" dim")+(isP&&sel.id===p.id?" cur":""))});
+ SK.forEach(function(s){sN[s].setAttribute("class","node skill"+(rs.indexOf(s)>-1?" on":" dim")+(!isP&&sel.id===s?" cur":""))});
+ panel.innerHTML="";
+ if(isP){var p=B[sel.id];mk("h3","",p.f,panel);mk("div","meta",p.k+", "+p.y,panel);mk("p","",p.d,panel);
+  var tg=mk("div","tags",null,panel);p.s.forEach(function(s){var b=mk("button","tag",s,tg);b.onclick=function(){pick("s",s)}})}
+ else{mk("h3","",sel.id,panel);mk("p","","I used this in "+S[sel.id].length+" project"+(S[sel.id].length>1?"s":"")+". Select one to read about it.",panel);
+  var tg2=mk("div","tags",null,panel);S[sel.id].forEach(function(id){var b=mk("button","tag p",B[id].f,tg2);b.onclick=function(){pick("p",id)}})}
+}
+function pick(t,id){if(sel.t===t&&sel.id===id)return;sel={t:t,id:id};paint()}
+
+var rows=document.getElementById("rows");
+P.forEach(function(p){var li=mk("li","",null,rows),b=mk("button","row",null,li);
+ var a=mk("div","",null,b);mk("b","",p.r||p.n,a);mk("small","",p.k+", "+p.y,a);
+ mk("span","",p.d.split(". ")[0].replace(/\.$/,"")+".",b);mk("span","",p.s.join(", "),b);
+ b.onclick=function(){sel={t:"p",id:p.id};paint();document.getElementById("top").scrollIntoView()}});
+
+var root=document.documentElement,tb=document.getElementById("theme");
+function isDark(){var t=root.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme:dark)").matches}
+function lab(){tb.textContent=isDark()?"Light theme":"Dark theme"}
+tb.onclick=function(){root.setAttribute("data-theme",isDark()?"light":"dark");lab()};lab();
+
+var cp=document.getElementById("copy");
+cp.onclick=function(){
+ var done=function(m){cp.textContent=m;setTimeout(function(){cp.textContent="Copy email address"},2200)};
+ try{navigator.clipboard.writeText("islemrhayem07@gmail.com").then(function(){done("Copied to clipboard")},function(){done("Couldn’t copy. Tap the address above.")})}
+ catch(e){done("Couldn’t copy. Tap the address above.")}
+};
+paint();
+})();
+</script>
+</body>
+</html>
